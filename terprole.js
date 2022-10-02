@@ -1,6 +1,10 @@
 #!/home/pi/n/bin/node
 const { Client, Collection, Intents } = require("discord.js");
+<<<<<<< HEAD
 const {token, guildID, clientID } = require("config.json");
+=======
+const {token, guildID, clientID } = require("./config.json");
+>>>>>>> fb2cd97 (made paths relative)
 const fs = require("node:fs");
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -11,12 +15,21 @@ const guild = client.guilds.cache.get(guildID);
 
 
 client.commands = new Collection();
+<<<<<<< HEAD
 const commandFiles = fs.readdirSync("commands").filter(file => file.endsWith(".js"));
 
 var command = require("commands/role.js");
 client.commands.set(command.data.name, command);
 
 command = require("commands/remove.js");
+=======
+const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
+
+var command = require("./commands/role.js");
+client.commands.set(command.data.name, command);
+
+command = require("./commands/remove.js");
+>>>>>>> fb2cd97 (made paths relative)
 client.commands.set(command.data.name, command);
 /*
 for (const file of commandFiles){
