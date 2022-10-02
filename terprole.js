@@ -1,6 +1,6 @@
 #!/home/pi/n/bin/node
 const { Client, Collection, Intents } = require("discord.js");
-const {token, guildID, clientID } = require("/home/pi/projects/terpbot/config.json");
+const {token, guildID, clientID } = require("config.json");
 const fs = require("node:fs");
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -11,12 +11,12 @@ const guild = client.guilds.cache.get(guildID);
 
 
 client.commands = new Collection();
-const commandFiles = fs.readdirSync("/home/pi/projects/terpbot/commands").filter(file => file.endsWith(".js"));
+const commandFiles = fs.readdirSync("commands").filter(file => file.endsWith(".js"));
 
-var command = require("/home/pi/projects/terpbot/commands/role.js");
+var command = require("commands/role.js");
 client.commands.set(command.data.name, command);
 
-command = require("/home/pi/projects/terpbot/commands/remove.js");
+command = require("commands/remove.js");
 client.commands.set(command.data.name, command);
 /*
 for (const file of commandFiles){
