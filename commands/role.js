@@ -231,11 +231,11 @@ module.exports = {
 
             collector.on("collect", async(collected) => {
                 const value = collected.values;
-                //console.log(value);
+                console.log(value);
 
                     for (let v in value){
-                        //console.log(v);
-                        //console.log(value[v]);
+                        console.log(v);
+                        console.log(value[v]);
                         switch(value[v]){
                             case 'she':
                                 collected.guild.roles.fetch('749748438123413587').then(role => collected.member.roles.add(role));
