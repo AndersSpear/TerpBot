@@ -230,9 +230,10 @@ module.exports = {
             const collector = interaction.channel.createMessageComponentCollector({filter, time: 15000});
 
             collector.on("collect", async(collected) => {
+		    
                 const value = collected.values;
                 //console.log(value);
-
+		await collected.reply(value).catch(console.error);
                     for (let v in value){
                         //console.log(v);
                         //console.log(value[v]);
